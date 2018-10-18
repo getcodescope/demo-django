@@ -7,7 +7,7 @@ from django.test import TestCase
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-logging.basicConfig()
+logging.basicConfig(level=logging.DEBUG)
 
 
 class UnitTests(TestCase):

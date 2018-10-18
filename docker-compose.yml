@@ -45,7 +45,7 @@ services:
   tests-worker:
     build: .
     image: codescope/demo-django:$COMMIT
-    command: ["codescope-run", "./manage.py", "test", "-p", "tests_worker.py"]
+    command: ["codescope-run", "./manage.py", "test", "-p", "tests_worker.py", "--parallel", "4"]
     environment:
       - CI
       - CODESCOPE_APIKEY
@@ -63,7 +63,7 @@ services:
   tests-frontend:
     build: .
     image: codescope/demo-django:$COMMIT
-    command: ["codescope-run", "./manage.py", "test", "-p", "tests_frontend.py"]
+    command: ["codescope-run", "./manage.py", "test", "-p", "tests_frontend.py", "--parallel", "4"]
     environment:
       - CI
       - CODESCOPE_APIKEY

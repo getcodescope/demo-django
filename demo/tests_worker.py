@@ -30,3 +30,9 @@ class UnitTests(TestCase):
         logger.info("testing slow_hash by sending task to a worker in a CI environment")
         self.assertEqual(slow_hash.delay("test").get(timeout=10),
                          "bc89c6f72947bcd2f783d342a46cafcfccfcc2e7884a34f1cfe8f55bad2d200e")
+
+    @skipUnless(os.getenv('CI') is not None, "not in CI")
+    def test_slow_hash_integration_binary(self):
+        logger.info("testing slow_hash by sending task to a worker in a CI environment")
+        self.assertEqual(slow_hash.delay(b"test").get(timeout=10),
+                         "bc89c6f72947bcd2f783d342a46cafcfccfcc2e7884a34f1cfe8f55bad2d200e")
