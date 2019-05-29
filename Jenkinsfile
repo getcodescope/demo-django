@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'env'
                 sh 'COMMIT=${GIT_COMMIT} docker-compose -p ${GIT_COMMIT} build'
             }
         }
