@@ -19,7 +19,7 @@ def ping():
 def slow_hash(value):
     logger.debug("received request for slow_hash task")
     loops = 0
-    while loops < 10:
+    while loops < 20:
         with opentracing.tracer.start_active_span("slow_hash.hash") as scope:
             scope.span.set_tag('loop', loops)
             value = hashlib.sha256(value.encode('utf-8')).hexdigest()
