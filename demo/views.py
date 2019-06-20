@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def ping(request):
-    logger.debug("received request for ping view", extra={'request': request})
+    logger.debug("received a good request for ping view", extra={'request': request})
     return HttpResponse("pong")
 
 
